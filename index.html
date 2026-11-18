@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090d18">
+  <meta name="description" content="ATHENA — your personal AI command center.">
+  <title>ATHENA — Personal AI Command Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="ATHENA home">
+        <span class="brand-mark">A</span>
+        <span><strong>ATHENA</strong><small>PERSONAL COMMAND</small></span>
+      </a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="nav-list" aria-label="Main navigation">
+        <button class="nav-item active" data-view="overview"><span>◫</span> Overview</button>
+        <button class="nav-item" data-view="assistant"><span>✳</span> AI Assistant <i class="live-dot"></i></button>
+        <button class="nav-item" data-view="projects"><span>◇</span> Projects</button>
+        <button class="nav-item" data-view="tasks"><span>☷</span> Task Manager <b id="navTaskCount">0</b></button>
+        <button class="nav-item" data-view="tools"><span>⌘</span> AI Tools</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="secure-card"><span class="secure-icon">⌑</span><div><strong>Private workspace</strong><small>Local demo · No external actions</small></div><span class="green-dot"></span></div>
+        <div class="profile"><div class="avatar">A</div><div><strong>ATHENA USER</strong><small>COMMANDER</small></div><button class="more-btn" aria-label="Profile options">···</button></div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="menuToggle" aria-label="Open navigation">☰</button>
+        <div class="breadcrumb">COMMAND CENTER <span>/</span> <strong id="crumb">OVERVIEW</strong></div>
+        <div class="top-actions"><span class="system-status"><i class="green-dot"></i> ALL SYSTEMS NOMINAL</span><span class="top-date" id="todayDate"></span><div class="top-avatar">A</div></div>
+      </header>
+
+      <section class="view active-view" id="view-overview">
+        <div class="hero-row">
+          <div><div class="eyebrow"><span class="eyebrow-line"></span> YOUR PERSONAL AI ECOSYSTEM</div><h1>Good to see you.<br><em>What’s the mission?</em></h1><p class="muted">One command center. Your ideas, projects, and next moves.</p></div>
+          <div class="hero-orb"><div class="orb-core">A</div><span class="orb-ring ring-one"></span><span class="orb-ring ring-two"></span><span class="orb-caption">ATHENA <b>CORE</b></span></div>
+        </div>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-top"><span>ACTIVE PROJECTS</span><span class="stat-icon">◇</span></div><strong>05</strong><small><i class="green-text">●</i> Ecosystem roadmap</small></article>
+          <article class="stat-card"><div class="stat-top"><span>OPEN TASKS</span><span class="stat-icon">☷</span></div><strong id="openTaskStat">00</strong><small>Across your workspace</small></article>
+          <article class="stat-card"><div class="stat-top"><span>COMPLETED</span><span class="stat-icon">✓</span></div><strong id="doneTaskStat">00</strong><small><i class="green-text">●</i> Your progress</small></article>
+          <article class="stat-card"><div class="stat-top"><span>CORE STATUS</span><span class="stat-icon">⌑</span></div><strong class="status-word">READY</strong><small><i class="green-text">●</i> Front-end demo mode</small></article>
+        </div>
+        <div class="content-grid">
+          <section class="panel mission-panel">
+            <div class="panel-heading"><div><div class="eyebrow">QUICK ACCESS</div><h2>Mission Control</h2></div><span class="panel-tag">YOUR WORKSPACE</span></div>
+            <div class="quick-grid">
+              <button class="quick-card" data-go="assistant"><span class="quick-icon violet">✳</span><strong>Talk to ATHENA</strong><small>Explore an idea or ask a question</small><span class="arrow">↗</span></button>
+              <button class="quick-card" data-go="projects"><span class="quick-icon blue">◇</span><strong>View projects</strong><small>Track your AI ecosystem roadmap</small><span class="arrow">↗</span></button>
+              <button class="quick-card" data-go="tasks"><span class="quick-icon amber">☷</span><strong>Manage tasks</strong><small>Organise your next actions</small><span class="arrow">↗</span></button>
+              <button class="quick-card" data-go="tools"><span class="quick-icon green">⌘</span><strong>Explore AI tools</strong><small>Your future tool launchpad</small><span class="arrow">↗</span></button>
+            </div>
+          </section>
+          <section class="panel activity-panel"><div class="panel-heading"><div><div class="eyebrow">YOUR NEXT MOVES</div><h2>Focus queue</h2></div><button class="text-button" data-go="tasks">View all ↗</button></div><div id="focusQueue" class="focus-queue"><div class="empty-state">No tasks yet.<br><span>Add your first mission in Task Manager.</span></div></div></section>
+        </div>
+        <section class="panel roadmap-strip"><div><div class="eyebrow">THE BIGGER PICTURE</div><h2>Five projects. One universe.</h2><p class="muted">Build each system independently, then connect them when ready.</p></div><button class="primary-btn" data-go="projects">Explore roadmap <span>↗</span></button></section>
+      </section>
+
+      <section class="view" id="view-assistant">
+        <div class="page-heading"><div class="eyebrow">INTELLIGENCE INTERFACE</div><h1>AI <em>Assistant</em></h1><p class="muted">A first look at your future personal AI companion.</p></div>
+        <div class="chat-layout panel"><div class="chat-head"><div class="assistant-avatar">✳</div><div><strong>ATHENA CORE</strong><small><i class="green-dot"></i> Demo mode · Scripted local responses</small></div><span class="panel-tag">PROTOTYPE</span></div><div class="chat-messages" id="chatMessages"><div class="message assistant-message"><span class="message-label">ATHENA</span><p>Hello, Commander. I’m your ATHENA interface prototype. Tell me what you’re planning, or choose a starter prompt below.</p></div></div><div class="suggestions"><button>Help me plan my day</button><button>Explain the five projects</button><button>Give me a project idea</button></div><form class="chat-form" id="chatForm"><input id="chatInput" type="text" placeholder="Message ATHENA..." autocomplete="off" aria-label="Message ATHENA"><button class="send-btn" type="submit" aria-label="Send message">↑</button></form><p class="demo-note">Demo only: messages are answered locally. No live AI model is connected.</p></div>
+      </section>
+
+      <section class="view" id="view-projects">
+        <div class="page-heading"><div class="eyebrow">ECOSYSTEM ROADMAP</div><h1>Project <em>Universe</em></h1><p class="muted">Five independent systems designed to become one connected ecosystem.</p></div>
+        <div class="project-grid">
+          <article class="project-card featured"><div class="project-top"><span class="project-symbol">A</span><span class="project-state in-progress">PHASE 1 · UI PROTOTYPE</span></div><div class="project-code">PROJECT 01</div><h2>ATHENA</h2><p>Personal AI companion and command center for organising ideas, tasks, and projects.</p><div class="project-foot"><span>PERSONAL AI</span><span>01 / 05</span></div></article>
+          <article class="project-card"><div class="project-top"><span class="project-symbol">E</span><span class="project-state planned">PLANNED</span></div><div class="project-code">PROJECT 02</div><h2>ECHO</h2><p>An AI builder that turns natural-language ideas into software and useful tools.</p><div class="project-foot"><span>AI SOFTWARE BUILDER</span><span>02 / 05</span></div></article>
+          <article class="project-card"><div class="project-top"><span class="project-symbol">O</span><span class="project-state planned">PLANNED</span></div><div class="project-code">PROJECT 03</div><h2>ORBIT</h2><p>A smart PC control center for system insights, workflows, and approved automation.</p><div class="project-foot"><span>PC CONTROL</span><span>03 / 05</span></div></article>
+          <article class="project-card"><div class="project-top"><span class="project-symbol">M</span><span class="project-state planned">PLANNED</span></div><div class="project-code">PROJECT 04</div><h2>MIRAGE</h2><p>An AI-powered virtual world simulator for exploring imagined environments and scenarios.</p><div class="project-foot"><span>VIRTUAL WORLDS</span><span>04 / 05</span></div></article>
+          <article class="project-card"><div class="project-top"><span class="project-symbol">G</span><span class="project-state planned">PLANNED</span></div><div class="project-code">PROJECT 05</div><h2>GENESIS</h2><p>An AI startup simulator for shaping concepts, testing plans, and modelling businesses.</p><div class="project-foot"><span>STARTUP SIMULATOR</span><span>05 / 05</span></div></article>
+        </div>
+        <div class="notice"><span>ⓘ</span><p><strong>Build principle:</strong> Each project will be developed in its own repository. Integration happens only after individual review and approval.</p></div>
+      </section>
+
+      <section class="view" id="view-tasks">
+        <div class="page-heading"><div class="eyebrow">PERSONAL PRODUCTIVITY</div><h1>Task <em>Manager</em></h1><p class="muted">Capture the mission. Set the priority. Make progress.</p></div>
+        <div class="task-layout"><section class="panel task-main"><div class="panel-heading"><div><div class="eyebrow">MISSION LIST</div><h2>Your tasks</h2></div><span class="panel-tag" id="taskTotalTag">0 TASKS</span></div><form id="taskForm" class="task-form"><input id="taskInput" placeholder="What needs to get done?" maxlength="120" required><select id="taskPriority" aria-label="Priority"><option value="medium">Medium</option><option value="high">High</option><option value="low">Low</option></select><button class="primary-btn" type="submit">Add task +</button></form><div class="task-filters"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="open">Open</button><button class="filter" data-filter="done">Completed</button></div><div id="taskList" class="task-list"></div></section><aside class="panel task-side"><div class="eyebrow">PROGRESS TRACKER</div><h2>Keep moving.</h2><div class="progress-ring" id="progressRing"><div><strong id="progressPercent">0%</strong><small>COMPLETE</small></div></div><div class="progress-legend"><span><i class="legend-open"></i> Open <b id="openCount">0</b></span><span><i class="legend-done"></i> Completed <b id="doneCount">0</b></span></div><p class="muted small-copy">Your task list is saved in this browser on this device.</p></aside></div>
+      </section>
+
+      <section class="view" id="view-tools">
+        <div class="page-heading"><div class="eyebrow">CAPABILITY LAUNCHPAD</div><h1>AI <em>Tools</em></h1><p class="muted">A home for the capabilities ATHENA can grow into.</p></div>
+        <div class="tools-grid">
+          <article class="tool-card"><span class="quick-icon violet">✳</span><span class="project-state in-progress">DEMO AVAILABLE</span><h2>AI Conversation</h2><p>Try the local ATHENA assistant interface.</p><button class="outline-btn" data-go="assistant">Open assistant ↗</button></article>
+          <article class="tool-card"><span class="quick-icon blue">⌁</span><span class="project-state planned">FUTURE MODULE</span><h2>Voice Interface</h2><p>Speech input and spoken responses with user-controlled permissions.</p><button class="outline-btn" disabled>Not connected</button></article>
+          <article class="tool-card"><span class="quick-icon amber">▤</span><span class="project-state planned">FUTURE MODULE</span><h2>File Workspace</h2><p>Create, organise, and inspect project files with approval.</p><button class="outline-btn" disabled>Not connected</button></article>
+          <article class="tool-card"><span class="quick-icon green">⌘</span><span class="project-state planned">FUTURE MODULE</span><h2>PC Automation</h2><p>Run selected computer workflows with clear confirmation steps.</p><button class="outline-btn" disabled>Not connected</button></article>
+          <article class="tool-card"><span class="quick-icon pink">◈</span><span class="project-state planned">FUTURE MODULE</span><h2>Knowledge Hub</h2><p>A searchable place for project notes, references, and decisions.</p><button class="outline-btn" disabled>Not connected</button></article>
+          <article class="tool-card"><span class="quick-icon teal">⌑</span><span class="project-state planned">FUTURE MODULE</span><h2>Cloud Sync</h2><p>Optional Firebase-backed sync after a separate setup and approval.</p><button class="outline-btn" disabled>Not connected</button></article>
+        </div>
+        <div class="notice"><span>⌑</span><p><strong>Permission-first:</strong> Future tools should request permission before accessing files, accounts, devices, or external services.</p></div>
+      </section>
+      <footer class="footer"><span>ATHENA COMMAND CENTER <b>·</b> V0.1</span><span>BUILT FOR IDEAS THAT MOVE THE WORLD.</span></footer>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
